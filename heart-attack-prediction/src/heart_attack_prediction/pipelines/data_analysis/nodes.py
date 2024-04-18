@@ -4,8 +4,8 @@ from kedro_datasets.matplotlib import MatplotlibWriter #https://docs.kedro.org/e
 
 def plot(heart):
     plots_dict = dict()
-    
-    plt.figure(figsize=(10, 6))
+
+    plots_dict["Age Distribution.png"] = plt.figure(figsize=(10, 6))
     sns.histplot(heart['age'], bins=10, kde=True, color='skyblue')
     plt.title('Age Distribution')
     plt.xlabel('Age')
@@ -13,7 +13,27 @@ def plot(heart):
     plt.grid(True)
     plt.tight_layout()
     
-    plots_dict['aaa.png'] = plt
+    plots_dict["Age Distribution with Gender Comparison.png"] = plt.figure(figsize=(10, 6))
+    sns.histplot(heart, x="age", hue="sex", multiple="stack", bins=10, kde=True)
+    plt.title('Age Distribution with Gender Comparison')
+    plt.xlabel('Age')
+    plt.ylabel('Frequency')
+    plt.grid(True)
+    plt.tight_layout()
+    
+    plots_dict["Correlation Heatmap.png"] = plt.figure(figsize=(10, 8))
+    sns.heatmap(heart.corr(), annot=True, cmap='coolwarm', fmt=".2f")
+    plt.title('Correlation Heatmap')
+    plt.tight_layout()
+    
+    plots_dict["Resting Blood Pressure vs. Cholesterol Scatter Plot.png"] = plt.figure(figsize=(10, 6))
+    sns.scatterplot(data=heart, x="trtbps", y="chol", hue="output")
+    plt.title('Resting Blood Pressure vs. Cholesterol Scatter Plot')
+    plt.xlabel('Resting Blood Pressure')
+    plt.ylabel('Cholesterol')
+    plt.grid(True)
+    plt.tight_layout()
+    
     dict_plot_writer = MatplotlibWriter(
         filepath="data/02_analysis/plots"
     )

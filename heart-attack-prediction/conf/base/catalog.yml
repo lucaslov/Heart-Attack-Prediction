@@ -1,7 +1,3 @@
 heart:
   type: pandas.CSVDataset
   filepath: data/01_raw/heart.csv
-
-output_plot:
-  type: matplotlib.MatplotlibWriter
-  filepath: data/02_analysis/matplotlib_dict
