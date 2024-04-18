@@ -2,7 +2,9 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from kedro_datasets.matplotlib import MatplotlibWriter #https://docs.kedro.org/en/0.17.7/kedro.extras.datasets.matplotlib.MatplotlibWriter.html
 
-def age_distribution(heart):
+def plot(heart):
+    plots_dict = dict()
+    
     plt.figure(figsize=(10, 6))
     sns.histplot(heart['age'], bins=10, kde=True, color='skyblue')
     plt.title('Age Distribution')
@@ -10,8 +12,11 @@ def age_distribution(heart):
     plt.ylabel('Frequency')
     plt.grid(True)
     plt.tight_layout()
-    single_plot_writer = MatplotlibWriter(
-        filepath="data/02_analysis/output_plot.png"
+    
+    plots_dict['aaa.png'] = plt
+    dict_plot_writer = MatplotlibWriter(
+        filepath="data/02_analysis/plots"
     )
-    single_plot_writer.save(plt)
-    plt.close()
+    dict_plot_writer.save(plots_dict)
+    plt.close("all")
+    

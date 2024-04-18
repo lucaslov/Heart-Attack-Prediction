@@ -1,14 +1,14 @@
 from kedro.pipeline import Pipeline, node, pipeline
-from .nodes import age_distribution
+from .nodes import plot
 
 def create_pipeline(**kwargs) -> Pipeline:
     return pipeline(
         [
             node(
-                func=age_distribution,
+                func=plot,
                 inputs="heart",
                 outputs=None,
-                name="age_distribution_node"
+                name="plots_node"
             )
         ]
     )
