@@ -3,7 +3,7 @@ This is a boilerplate pipeline 'preprocess'
 generated using Kedro 0.19.4
 """
 
-from kedro.pipeline import Pipeline, pipeline
+from kedro.pipeline import Pipeline, pipeline, node
 from .nodes import heart_preprocess
 
 def create_pipeline(**kwargs) -> Pipeline:
