@@ -2,6 +2,10 @@ heart:
   type: pandas.CSVDataset
   filepath: data/01_raw/heart.csv
 
+heart_procesed:
+  type: pandas.CSVDataset
+  filepath: data/02_processed/heart_processed.csv
+
 heart_train:
   type: pandas.CSVDataset
   filepath: data/03_split/heart_train.csv
