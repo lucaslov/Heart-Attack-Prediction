@@ -14,8 +14,8 @@ def split(heart, train_weight, validation_weight, test_weight):
     
     return train_data, validation_data, test_data
 
-def split_output(heart_train):
-    heart_train_x = heart_train.drop(columns=['target'])
-    heart_train_y = heart_train['target']
-    
-    return heart_train_x, heart_train_y
+def split_train_output(heart_train):
+    return heart_train.drop(columns=['output']), heart_train['output']
+
+def split_test_output(heart_test):
+    return heart_test.drop(columns=['output']), heart_test['output']
