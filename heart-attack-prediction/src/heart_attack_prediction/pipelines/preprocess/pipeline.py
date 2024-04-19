@@ -12,7 +12,7 @@ def create_pipeline(**kwargs) -> Pipeline:
             node(
                 func=heart_preprocess,
                 inputs=['heart'],
-                outputs=['heart_processed'],
+                outputs='heart_processed',
                 name="heart_preprocess_node",
             ),
         ]

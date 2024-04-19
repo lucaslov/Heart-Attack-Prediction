@@ -8,32 +8,32 @@ heart_procesed:
 
 heart_train:
   type: pandas.CSVDataset
-  filepath: data/03_split/heart_train.csv
+  filepath: data/04_split/heart_train.csv
 
 heart_validation:
   type: pandas.CSVDataset
-  filepath: data/03_split/heart_validation.csv
+  filepath: data/04_split/heart_validation.csv
 
 heart_test:
   type: pandas.CSVDataset
-  filepath: data/03_split/heart_test.csv
+  filepath: data/04_split/heart_test.csv
 
 heart_train_x:
   type: pandas.CSVDataset
-  filepath: data/03_split/heart_train_x.csv
+  filepath: data/04_split/heart_train_x.csv
 
 heart_train_y:
   type: pandas.CSVDataset
-  filepath: data/03_split/heart_train_y.csv
+  filepath: data/04_split/heart_train_y.csv
 
 heart_test_x:
   type: pandas.CSVDataset
-  filepath: data/03_split/heart_test_x.csv
+  filepath: data/04_split/heart_test_x.csv
 
 heart_test_y:
   type: pandas.CSVDataset
-  filepath: data/03_split/heart_test_y.csv
+  filepath: data/04_split/heart_test_y.csv
 
 model_knn:
   type: pickle.PickleDataset
-  filepath: data/04_models/model_knn.pickle
+  filepath: data/05_models/model_knn.pickle
