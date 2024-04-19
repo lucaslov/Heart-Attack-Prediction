@@ -13,3 +13,15 @@ heart_validation:
 heart_test:
   type: pandas.CSVDataset
   filepath: data/03_split/heart_test.csv
+
+heart_train_x:
+  type: pandas.CSVDataset
+  filepath: data/03_split/heart_train_x.csv
+
+heart_train_y:
+  type: pandas.CSVDataset
+  filepath: data/03_split/heart_train_y.csv
+
+model_knn:
+  type: pickle.PickleDataset
+  filepath: data/04_models/model_knn.pickle
