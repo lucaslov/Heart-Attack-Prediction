@@ -6,7 +6,7 @@ def create_pipeline(**kwargs) -> Pipeline:
         [
             node(
                 func=split,
-                inputs=['heart','params:train_weight','params:validation_weight','params:test_weight'],
+                inputs=['heart_processed','params:train_weight','params:validation_weight','params:test_weight'],
                 outputs=['heart_train','heart_validation','heart_test'],
                 name="split_node",
             ),
