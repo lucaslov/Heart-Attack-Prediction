@@ -1,3 +1,15 @@
 heart:
   type: pandas.CSVDataset
   filepath: data/01_raw/heart.csv
+
+heart_train:
+  type: pandas.CSVDataset
+  filepath: data/03_split/heart_train.csv
+
+heart_validation:
+  type: pandas.CSVDataset
+  filepath: data/03_split/heart_validation.csv
+
+heart_test:
+  type: pandas.CSVDataset
+  filepath: data/03_split/heart_test.csv
