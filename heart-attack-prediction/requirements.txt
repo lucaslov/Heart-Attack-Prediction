@@ -17,3 +17,4 @@ plotly.express
 matplotlib
 scikit-learn
 requests
+wandb

@@ -1,6 +1,7 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
 from kedro_datasets.matplotlib import MatplotlibWriter #https://docs.kedro.org/en/0.17.7/kedro.extras.datasets.matplotlib.MatplotlibWriter.html
+import wandb
 
 def plot(heart):
     plots_dict = dict()
@@ -38,5 +39,6 @@ def plot(heart):
         filepath="data/02_analysis/plots"
     )
     dict_plot_writer.save(plots_dict)
+    wandb.log({ 'charts' : plots_dict })
     plt.close("all")
     
