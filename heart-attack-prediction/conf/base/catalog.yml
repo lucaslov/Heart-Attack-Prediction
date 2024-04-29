@@ -1,38 +1,65 @@
 heart:
-  type: pandas.CSVDataset
-  filepath: data/01_raw/heart.csv
+  type: pandas.SQLTableDataset
+  credentials: postgres_credentials
+  table_name: heart_raw
+  save_args: 
+    if_exists: replace
 
 heart_procesed:
-  type: pandas.CSVDataset
-  filepath: data/02_processed/heart_processed.csv
+  type: pandas.SQLTableDataset
+  credentials: postgres_credentials
+  table_name: heart_processed
+  save_args: 
+    if_exists: replace
 
 heart_train:
-  type: pandas.CSVDataset
-  filepath: data/04_split/heart_train.csv
+  type: pandas.SQLTableDataset
+  credentials: postgres_credentials
+  table_name: heart_trained
+  save_args: 
+    if_exists: replace
 
 heart_validation:
-  type: pandas.CSVDataset
-  filepath: data/04_split/heart_validation.csv
+  type: pandas.SQLTableDataset
+  credentials: postgres_credentials
+  table_name: heart_validation
+  save_args: 
+    if_exists: replace
 
 heart_test:
-  type: pandas.CSVDataset
-  filepath: data/04_split/heart_test.csv
+  type: pandas.SQLTableDataset
+  credentials: postgres_credentials
+  table_name: heart_test
+  save_args: 
+    if_exists: replace
 
 heart_train_x:
-  type: pandas.CSVDataset
-  filepath: data/04_split/heart_train_x.csv
+  type: pandas.SQLTableDataset
+  credentials: postgres_credentials
+  table_name: heart_train_x
+  save_args: 
+    if_exists: replace
 
 heart_train_y:
-  type: pandas.CSVDataset
-  filepath: data/04_split/heart_train_y.csv
+  type: pandas.SQLTableDataset
+  credentials: postgres_credentials
+  table_name: heart_train_y
+  save_args: 
+    if_exists: replace
 
 heart_test_x:
-  type: pandas.CSVDataset
-  filepath: data/04_split/heart_test_x.csv
+  type: pandas.SQLTableDataset
+  credentials: postgres_credentials
+  table_name: heart_test_x
+  save_args: 
+    if_exists: replace
 
 heart_test_y:
-  type: pandas.CSVDataset
-  filepath: data/04_split/heart_test_y.csv
+  type: pandas.SQLTableDataset
+  credentials: postgres_credentials
+  table_name: heart_test_y
+  save_args: 
+    if_exists: replace
 
 model_knn:
   type: pickle.PickleDataset
