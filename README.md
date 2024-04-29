@@ -1,6 +1,7 @@
 # heart-attack-prediction
 
 ## Overview
+``` Run database with docker-compose up -d ```
 
 This is your new Kedro project with Kedro-Viz setup, which was generated using `kedro 0.19.4`.
 
