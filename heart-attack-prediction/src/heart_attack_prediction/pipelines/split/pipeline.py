@@ -1,5 +1,5 @@
 from kedro.pipeline import Pipeline, node, pipeline
-from .nodes import split, split_test_output, split_train_output
+from .nodes import split
 
 def create_pipeline(**kwargs) -> Pipeline:
     return pipeline(

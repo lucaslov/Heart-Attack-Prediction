@@ -1,1 +1,1 @@
-{"heart": {"rows": 303, "columns": 14, "file_size": 11279}, "heart_train": {"rows": 212, "columns": 14, "file_size": 7914}, "heart_test": {"rows": 46, "columns": 14, "file_size": 1779}, "heart_processed": {"rows": 303, "columns": 14}}
+{"heart": {"rows": 303, "columns": 14, "file_size": null}, "heart_processed": {"rows": 303, "columns": 14}, "heart_train": {"rows": 242, "columns": 14, "file_size": null}, "heart_test": {"rows": 61, "columns": 14, "file_size": null}}
