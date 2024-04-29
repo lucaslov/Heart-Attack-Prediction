@@ -7,5 +7,6 @@ class ProjectHooks(ProjectHooks):
 
     @hook_impl
     def before_pipeline_run(self, *args, **kwargs):
+        print('Running')
         load_dotenv() 
 
