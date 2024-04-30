@@ -13,7 +13,7 @@ def create_pipeline(**kwargs) -> Pipeline:
             node(
                 func=train,
                 inputs=['heart_train'],
-                outputs='preditor',
+                outputs='predictor',
                 name="train_node",
             )
         ]

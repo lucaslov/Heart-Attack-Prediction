@@ -5,7 +5,7 @@ heart:
   save_args: 
     if_exists: replace
 
-heart_procesed:
+heart_processed:
   type: pandas.SQLTableDataset
   credentials: postgres_credentials
   table_name: heart_processed

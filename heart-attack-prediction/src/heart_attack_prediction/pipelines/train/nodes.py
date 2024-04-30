@@ -7,5 +7,5 @@ from autogluon.tabular import TabularPredictor
 #     return model_knn
 
 def train(heart_train):
-    predictor = TabularPredictor(label='output', eval_metric="accuracy").fit(heart_train, presets="good_quality")
+    predictor = TabularPredictor(label='output', eval_metric="accuracy", path="AutogluonModels").fit(heart_train, presets="good_quality")
     return predictor

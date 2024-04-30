@@ -18,7 +18,7 @@ def create_pipeline(**kwargs) -> Pipeline:
             # ),
             node(
                 func=evaluate,
-                inputs=["preditor", "heart_test"],
+                inputs=["predictor", "heart_test"],
                 outputs=None,
                 name="evaluate_node",
             ),
