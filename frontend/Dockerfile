@@ -1,9 +1,8 @@
 FROM python:3.8
+WORKDIR /app
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt
 
-WORKDIR /src
-
-COPY ./src /src
-
-RUN pip install streamlit
+COPY ./src .
 
 CMD ["streamlit", "run", "main.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
