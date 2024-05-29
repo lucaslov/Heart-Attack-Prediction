@@ -1,8 +1,8 @@
 heart:
   type: pandas.SQLTableDataset
-  credentials: postgres_credentials
   table_name: heart_raw
-  save_args: 
+  credentials: postgres_credentials
+  save_args:
     if_exists: replace
 
 heart_processed:

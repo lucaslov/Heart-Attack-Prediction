@@ -6,7 +6,9 @@ COPY ./src src/fastapi
 COPY ./heart-attack-prediction src/heart-attack-prediction
 COPY ./services src/services
 COPY ./requirements.txt .
+COPY ./model.py /src
+COPY ./main.py /src
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
-CMD ["uvicorn", "src.routers:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

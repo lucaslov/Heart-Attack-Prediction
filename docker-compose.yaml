@@ -27,7 +27,7 @@ services:
     depends_on:
       - asi-postgres
     environment:
-      DATABASE_URL: postgres://asiuser:asi12345@asi-postgres:5432/asi-db
+      - DATABASE_URL=postgresql+psycopg2://asiuser:asi12345@asi-postgres:5432/asi-db
     volumes:
       - ./backend:/app
 volumes:

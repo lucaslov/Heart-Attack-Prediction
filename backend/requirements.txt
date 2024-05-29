@@ -4,6 +4,7 @@ kedro
 kedro-datasets
 kedro-telemetry
 kedro-viz
+kedro[pandas]
 notebook
 pytest
 pytest-cov
