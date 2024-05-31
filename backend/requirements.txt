@@ -20,5 +20,6 @@ wandb
 SQLAlchemy
 psycopg2-binary
 autogluon
-fastapi
+fastapi==0.110
 uvicorn
+python-multipart

@@ -170,4 +170,4 @@ wandb/debug-internal.log
 wandb/dryrun/
 wandb/offline/
 
-/heart-attack-prediction/AutogluonModels/
+backend/heart-attack-prediction/AutogluonModels/models

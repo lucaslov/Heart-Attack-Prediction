@@ -1,5 +1,5 @@
 from http.client import HTTPException
-from model import HeartPrediction
+from models.model import HeartPrediction
 import pandas as pd
 from autogluon.tabular import TabularPredictor
 
