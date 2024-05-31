@@ -19,12 +19,12 @@ heart_train:
   save_args: 
     if_exists: replace
 
-heart_validation:
-  type: pandas.SQLTableDataset
-  credentials: postgres_credentials
-  table_name: heart_validation
-  save_args: 
-    if_exists: replace
+# heart_validation:
+#   type: pandas.SQLTableDataset
+#   credentials: postgres_credentials
+#   table_name: heart_validation
+#   save_args: 
+#     if_exists: replace
 
 heart_test:
   type: pandas.SQLTableDataset
@@ -33,33 +33,33 @@ heart_test:
   save_args: 
     if_exists: replace
 
-heart_train_x:
-  type: pandas.SQLTableDataset
-  credentials: postgres_credentials
-  table_name: heart_train_x
-  save_args: 
-    if_exists: replace
+# heart_train_x:
+#   type: pandas.SQLTableDataset
+#   credentials: postgres_credentials
+#   table_name: heart_train_x
+#   save_args: 
+#     if_exists: replace
 
-heart_train_y:
-  type: pandas.SQLTableDataset
-  credentials: postgres_credentials
-  table_name: heart_train_y
-  save_args: 
-    if_exists: replace
+# heart_train_y:
+#   type: pandas.SQLTableDataset
+#   credentials: postgres_credentials
+#   table_name: heart_train_y
+#   save_args: 
+#     if_exists: replace
 
-heart_test_x:
-  type: pandas.SQLTableDataset
-  credentials: postgres_credentials
-  table_name: heart_test_x
-  save_args: 
-    if_exists: replace
+# heart_test_x:
+#   type: pandas.SQLTableDataset
+#   credentials: postgres_credentials
+#   table_name: heart_test_x
+#   save_args: 
+#     if_exists: replace
 
-heart_test_y:
-  type: pandas.SQLTableDataset
-  credentials: postgres_credentials
-  table_name: heart_test_y
-  save_args: 
-    if_exists: replace
+# heart_test_y:
+#   type: pandas.SQLTableDataset
+#   credentials: postgres_credentials
+#   table_name: heart_test_y
+#   save_args: 
+#     if_exists: replace
 
 model_knn:
   type: pickle.PickleDataset

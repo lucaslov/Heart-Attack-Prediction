@@ -17,7 +17,10 @@ services:
     ports: 
       - '8501:8501'
     volumes:
-      - ./frontend/src:/src
+      - ./frontend/src:/app
+    environment:
+      - STREAMLIT_SERVER_RUN_ON_SAVE=true
+      - STREAMLIT_SERVER_HEADLESS=true
   fastapi-be:
     build:
       context: ./backend
