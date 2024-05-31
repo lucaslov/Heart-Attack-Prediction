@@ -13,7 +13,7 @@ def show():
         if st.button("Import and Run Pipeline"):
             with st.spinner('Uploading and processing...'):
                 response = requests.post(
-                    "http://localhost:8000/import_data",
+                    "http://fastapi-be:8000/import_data",
                     files={"file": (uploaded_file.name, uploaded_file, "text/csv")}
                 )
             

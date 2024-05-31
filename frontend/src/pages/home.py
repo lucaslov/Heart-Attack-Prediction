@@ -7,7 +7,7 @@ def show():
     dataset_name = st.text_input("Enter dataset name:", "heart_raw")
     
     if st.button("Load Data"):
-        response = requests.get(f"http://localhost:8000/heart_data/{dataset_name}")
+        response = requests.get(f"http://fastapi-be:8000/heart_data/{dataset_name}")
         if response.status_code == 200:
             data = response.json()
             df = pd.DataFrame(data)

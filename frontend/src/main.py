@@ -12,6 +12,7 @@ with st.sidebar:
         default_index=0,
     )
 
+
 if selected == "Home":
     from pages import home
     home.show()
