@@ -18,5 +18,17 @@ services:
       - '8501:8501'
     volumes:
       - ./frontend/src:/src
+  fastapi-be:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+    depends_on:
+      - asi-postgres
+    environment:
+      DATABASE_URL: postgres://asiuser:asi12345@asi-postgres:5432/asi-db
+    volumes:
+      - ./backend:/app
 volumes:
   postgres-data: {}
