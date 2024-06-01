@@ -4,15 +4,15 @@ from .nodes import train
 def create_pipeline(**kwargs) -> Pipeline:
     return pipeline(
         [
-            # node(
-            #     func=train,
-            #     inputs=['heart_train_x', 'heart_train_y'],
-            #     outputs='model_knn',
-            #     name="train_node",
-            # )
             node(
                 func=train,
-                inputs=['heart_train'],
+                inputs=dict(
+                    heart_train='heart_train',
+                    label='params:label',
+                    eval_metric='params:eval_metric',
+                    path='params:path',
+                    presets='params:presets',
+                ),
                 outputs='predictor',
                 name="train_node",
             )
