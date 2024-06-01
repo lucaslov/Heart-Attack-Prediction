@@ -1,0 +1,4 @@
+label: output
+eval_metric: accuracy
+path: AutogluonModels
+presets: good_quality
