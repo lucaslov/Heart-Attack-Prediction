@@ -59,17 +59,28 @@ async def run_pipelines_endpoint():
 @router.post("/import_data/{dataset_name}")
 async def import_data_endpoint(dataset_name: str, file: UploadFile = File(...)):
     try:
+        file_content = await file.read()
+        
+        if not file_content:
+            raise HTTPException(status_code=400, detail="Uploaded file is empty")
+        
         file_location = f"heart-attack-prediction/data/01_raw/{file.filename}"
         os.makedirs(os.path.dirname(file_location), exist_ok=True)
+
         with open(file_location, "wb") as file_object:
-            file_object.write(file.file.read())
+            file_object.write(file_content)
         
         if not os.path.exists(file_location) or os.path.getsize(file_location) == 0:
             raise HTTPException(status_code=400, detail="Failed to save uploaded CSV or file is empty")
         
+        with open(file_location, "r") as file_check:
+            saved_file_content = file_check.read()
+
         append_data_to_dataset(dataset_name, file_location)
         return {"message": f"Data appended to dataset {dataset_name} successfully"}
     except HTTPException as e:
         raise e
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+

@@ -36,7 +36,7 @@ def plot(heart):
     plt.tight_layout()
     
     dict_plot_writer = MatplotlibWriter(
-        filepath="data/02_analysis/plots"
+        filepath="heart-attack-prediction/data/02_analysis/plots"
     )
     dict_plot_writer.save(plots_dict)
     wandb.log({ 'charts' : plots_dict })

@@ -4,6 +4,14 @@ import pandas as pd
 
 def show():
     st.title("Work with Data")
+
+    if st.button("Run Kedro Pipelines"):
+        with st.spinner('Running pipelines...'):
+            response = requests.post("http://fastapi-be:8000/api/run_pipelines")
+        if response.status_code == 200:
+            st.success("Pipelines executed and new model generated successfully")
+        else:
+            st.error(f"Error running pipelines: {response.json()['detail']}")
     
     if st.button("Remove Entire Dataset"):
         with st.spinner('Removing dataset...'):
@@ -19,6 +27,7 @@ def show():
         st.dataframe(df)
         
         if st.button("Import New CSV"):
+            uploaded_file.seek(0)  # Reset the file pointer to the beginning after reading it
             with st.spinner('Uploading and processing...'):
                 response = requests.post(
                     "http://fastapi-be:8000/api/import_data/heart",
@@ -27,7 +36,8 @@ def show():
             if response.status_code == 200:
                 st.success("Data appended to dataset successfully")
             else:
-                st.error(f"Error importing dataset: {response.json()['detail']}")
+                st.error(f"Error importing dataset: {response.json().get('detail', 'Unknown error')}")
+
     
     st.subheader("Add Single Row to Raw Data")
     new_row = {
@@ -56,14 +66,6 @@ def show():
             st.success("Row added successfully")
         else:
             st.error(f"Error adding row: {response.json()['detail']}")
-
-    if st.button("Run Kedro Pipelines"):
-        with st.spinner('Running pipelines...'):
-            response = requests.post("http://fastapi-be:8000/api/run_pipelines")
-        if response.status_code == 200:
-            st.success("Pipelines executed and new model generated successfully")
-        else:
-            st.error(f"Error running pipelines: {response.json()['detail']}")
     
     st.subheader("Remove Row from Raw Data")
     row_id = st.number_input("Row ID to Remove", min_value=0)

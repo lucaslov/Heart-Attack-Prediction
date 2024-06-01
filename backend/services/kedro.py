@@ -22,10 +22,9 @@ def get_dataset(dataset_name: str):
 
 def run_pipeline():
     try:
-        runner = SequentialRunner()
-        context.run(runner=runner)
-    except AttributeError:
-        raise HTTPException(status_code=500, detail=f"'KedroContext' object has no attribute 'run'")
+        project_path = Path("heart-attack-prediction")
+        with KedroSession.create("heart-attack-prediction", project_path) as session:
+            session.run(runner=SequentialRunner())
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to run pipeline: {e}")
 
@@ -61,16 +60,13 @@ def append_data_to_dataset(dataset_name: str, file_location: str):
             print("File Content:\n", content)
         
         new_data = pd.read_csv(file_location)
-        print("New Data:\n", new_data.head())  
 
         if new_data.empty or new_data.columns.size == 0:
             raise HTTPException(status_code=400, detail="Uploaded CSV is empty or invalid")
 
         existing_data = catalog.load(dataset_name)
-        print("Existing Data:\n", existing_data.head())  
 
         combined_data = pd.concat([existing_data, new_data], ignore_index=True)
-        print("Combined Data:\n", combined_data.head())
 
         catalog.save(dataset_name, combined_data)
     except pd.errors.EmptyDataError:
@@ -79,4 +75,5 @@ def append_data_to_dataset(dataset_name: str, file_location: str):
         raise HTTPException(status_code=400, detail=f"Error parsing CSV file: {e}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to append data: {e}")
+
 
